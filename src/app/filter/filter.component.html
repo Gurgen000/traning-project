@@ -1,0 +1,7 @@
+<div class="filter-buttons">
+    <button class="btn" [class.active]="currentFilter === 'all'" (click)="setFilter('all')">All</button>
+    <button class="btn" [class.active]="currentFilter === 'completed'"
+        (click)="setFilter('completed')">Completed</button>
+    <button class="btn" [class.active]="currentFilter === 'incomplete'"
+        (click)="setFilter('incomplete')">Incomplete</button>
+</div>

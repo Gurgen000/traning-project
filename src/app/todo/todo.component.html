@@ -1,0 +1,40 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <h1>ToDo</h1>
+            <input type="text" class="form-control" [(ngModel)]="newTask" (keyup.enter)="addTodo()"
+                placeholder="Add a new task" />
+            <button class="btn btn-primary" (click)="addTodo()">Add</button>
+            <app-filter (filterChanged)="setFilter($event)"></app-filter>
+            <ul class="list-group">
+                @for (todo of filteredTodos; track todo.id) {
+                <li class="list-group-item">
+                    @if (!todo.editing) {
+                    <div>
+                        <span class="form-control" [class.completed]="todo.completed">
+                            {{ todo.value }}
+                        </span>
+                        <div>
+                            <button class="btn btn-danger" (click)="editTodo(todo)">Edit</button>
+                            <button (click)="deleteTodo(todo.id)">Delete</button>
+                        </div>
+                    </div>
+                    }
+                    @if (todo.editing) {
+                    <div class="col-sm-12">
+                        <input type="text" class="form-control" [(ngModel)]="todo.value"
+                            (keyup.enter)="saveTodo(todo, todo.value)" />
+                        <button class="btn btn-primary" (click)="saveTodo(todo, todo.value)">
+                            Save
+                        </button>
+                        <button class="btn btn-secondary" (click)="cancelEdit(todo)">
+                            Cancel
+                        </button>
+                    </div>
+                    }
+                </li>
+                }
+            </ul>
+        </div>
+    </div>
+</div>
