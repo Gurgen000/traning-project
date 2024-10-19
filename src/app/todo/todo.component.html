@@ -16,8 +16,9 @@
                             {{ todo.value }}
                         </span>
                         <div>
-                            <button class="btn btn-warning" (click)="editTodo(todo)">Edit</button>
-                            <button (click)="deleteTodo(todo.id)" class="btn btn-danger mr5">Delete</button>
+                            <button class="btn btn-warning" (click)="editTodo(todo)"><img src="/assets/svg/edit.svg" alt="edit"></button>
+                            <button (click)="deleteTodo(todo.id)" class="btn btn-light mr5"><img
+                                    src="/assets/svg/delete.svg" alt="delete"></button>
                         </div>
                     </div>
                     }
@@ -26,10 +27,10 @@
                         <input type="text" class="form-control" [(ngModel)]="todo.value"
                             (keyup.enter)="saveTodo(todo, todo.value)" />
                         <button class="btn btn-info" (click)="saveTodo(todo, todo.value)">
-                            Save
+                            <img src="/assets/svg/save.svg" alt="save">
                         </button>
                         <button class="btn btn-success mr5" (click)="cancelEdit(todo)">
-                            Cancel
+                            <img src="/assets/svg/cancel-close.svg" alt="cancel-close">
                         </button>
                     </div>
                     }
