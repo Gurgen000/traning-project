@@ -98,4 +98,7 @@ export class TodoComponent {
     this.filter = filter;
     this.applyFilter();
   }
+  trackByTodoId(index: number, todo: Todo): number {
+    return todo.id
+  }
 }

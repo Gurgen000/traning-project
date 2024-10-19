@@ -4,5 +4,10 @@
 
 .btn{
     margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.mr5 {
+    margin-left: 5px;
 }
 

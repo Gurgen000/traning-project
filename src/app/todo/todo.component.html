@@ -11,12 +11,13 @@
                 <li class="list-group-item">
                     @if (!todo.editing) {
                     <div>
+                        <input type="checkbox" [checked]="todo.completed" (change)="toggleComplete(todo)">
                         <span class="form-control" [class.completed]="todo.completed">
                             {{ todo.value }}
                         </span>
                         <div>
-                            <button class="btn btn-danger" (click)="editTodo(todo)">Edit</button>
-                            <button (click)="deleteTodo(todo.id)">Delete</button>
+                            <button class="btn btn-warning" (click)="editTodo(todo)">Edit</button>
+                            <button (click)="deleteTodo(todo.id)" class="btn btn-danger mr5">Delete</button>
                         </div>
                     </div>
                     }
@@ -24,10 +25,10 @@
                     <div class="col-sm-12">
                         <input type="text" class="form-control" [(ngModel)]="todo.value"
                             (keyup.enter)="saveTodo(todo, todo.value)" />
-                        <button class="btn btn-primary" (click)="saveTodo(todo, todo.value)">
+                        <button class="btn btn-info" (click)="saveTodo(todo, todo.value)">
                             Save
                         </button>
-                        <button class="btn btn-secondary" (click)="cancelEdit(todo)">
+                        <button class="btn btn-success mr5" (click)="cancelEdit(todo)">
                             Cancel
                         </button>
                     </div>
