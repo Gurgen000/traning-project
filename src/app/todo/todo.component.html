@@ -11,13 +11,14 @@
                 <li class="list-group-item">
                     @if (!todo.editing) {
                     <div>
-                        <input type="checkbox" [checked]="todo.completed" (change)="toggleComplete(todo)">
+                        <input type="checkbox" class="form-check-input" [checked]="todo.completed" (change)="toggleComplete(todo)">
                         <span class="form-control" [class.completed]="todo.completed">
                             {{ todo.value }}
                         </span>
                         <div>
-                            <button class="btn btn-warning" (click)="editTodo(todo)"><img src="/assets/svg/edit.svg" alt="edit"></button>
-                            <button (click)="deleteTodo(todo.id)" class="btn btn-light mr5"><img
+                            <button class="btn btn-warning" (click)="editTodo(todo)"><img src="/assets/svg/edit.svg"
+                                    alt="edit"></button>
+                            <button (click)="deleteTodo(todo.id)" class="btn btn-danger mr5"><img
                                     src="/assets/svg/delete.svg" alt="delete"></button>
                         </div>
                     </div>
