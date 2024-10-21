@@ -13,14 +13,37 @@
                 <li class="list-group-item">
                     @if (!todo.editing) {
                     <div>
-                        <input type="checkbox" [checked]="todo.completed" (change)="toggleComplete(todo)">
+                        <input type="checkbox" class="form-check-input" [checked]="todo.completed" (change)="toggleComplete(todo)">
                         <span class="form-control" [class.completed]="todo.completed">
                             {{ todo.value }}
                         </span>
+<<<<<<< HEAD
                 <li class="list-group-item">
                     <span> (Priority: {{todo.priority}}) {{todo.value}}</span>
                     <app-priority [(priority)]="todo.priority"
                         (priorityChange)="saveTodoPriority(todo, $event)"></app-priority>
+=======
+                        <div>
+                            <button class="btn btn-warning" (click)="editTodo(todo)"><img src="/assets/svg/edit.svg"
+                                    alt="edit"></button>
+                            <button (click)="deleteTodo(todo.id)" class="btn btn-danger mr5"><img
+                                    src="/assets/svg/delete.svg" alt="delete"></button>
+                        </div>
+                    </div>
+                    }
+                    @if (todo.editing) {
+                    <div class="col-sm-12">
+                        <input type="text" class="form-control" [(ngModel)]="todo.value"
+                            (keyup.enter)="saveTodo(todo, todo.value)" />
+                        <button class="btn btn-info" (click)="saveTodo(todo, todo.value)">
+                            <img src="/assets/svg/save.svg" alt="save">
+                        </button>
+                        <button class="btn btn-success mr5" (click)="cancelEdit(todo)">
+                            <img src="/assets/svg/cancel-close.svg" alt="cancel-close">
+                        </button>
+                    </div>
+                    }
+>>>>>>> f7441f4cf51a6498951f39eee106db7bc3e29705
                 </li>
 
                 <li class="list-group-item">
