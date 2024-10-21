@@ -1,0 +1,8 @@
+<div class="priority-selector">
+  <label for="priority" class="form-label">Priority:</label>
+  <select id="priority" class="form-select" [(ngModel)]="priority" (change)="changePriority($event)">
+    <option value="low">Low</option>
+    <option value="medium">Medium</option>
+    <option value="high">High</option>
+  </select>
+</div>

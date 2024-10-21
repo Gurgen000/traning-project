@@ -1,0 +1,10 @@
+<div class="row">
+    <div class="col-sm-12">
+        <input class="form-control" type="text" (keyup.enter)="addTag(tagInput.value)" #tagInput
+            placeholder="Add a tag">
+        <button class="btn btn-light" (click)="addTag(tagInput.value); tagInput.value=''">Add Tag</button>
+        @for (tag of tags; track $index) {
+        <span>{{tag}} <button class="btn btn-info" (click)="removeTag(tag)">Remove</button></span>
+        }
+    </div>
+</div>

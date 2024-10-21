@@ -6,18 +6,33 @@ import { FilterService } from '../filter.service';
 import { GeneratorIdService } from '../helpers/generatorId.service';
 
 import { FilterComponent } from '../filter/filter.component';
+import { PriorityComponent } from '../priority/priority.component';
+import { TagsComponent } from '../tags/tags.component';
+import { DeadlineComponent } from '../deadline/deadline.component';
+import { RecurringTaskComponent } from '../recurring-task/recurring-task.component';
 
 export interface Todo {
   id: number;
   value: string;
   editing: boolean;
   completed: boolean;
+  priority: string;
+  tags: string[];
+  deadline: Date;
+  recurring: string;
 }
 
 @Component({
   selector: 'app-todo',
   standalone: true,
-  imports: [FormsModule, FilterComponent],
+  imports: [
+    FormsModule,
+    FilterComponent,
+    PriorityComponent,
+    TagsComponent,
+    DeadlineComponent,
+    RecurringTaskComponent,
+  ],
   templateUrl: './todo.component.html',
   styleUrl: './todo.component.css',
 })
@@ -50,6 +65,10 @@ export class TodoComponent {
         value: this.newTask.trim(),
         completed: false,
         editing: false,
+        priority: 'medium',
+        tags: [],
+        deadline: new Date(),
+        recurring: 'none',
       };
       this.todos.push(newTodo);
       this.newTask = '';
@@ -99,6 +118,25 @@ export class TodoComponent {
     this.applyFilter();
   }
   trackByTodoId(index: number, todo: Todo): number {
-    return todo.id
+    return todo.id;
+  }
+
+  saveTodoPriority(todo: Todo, newPriority: string) {
+    todo.priority = newPriority;
+    this.local.setItem('todo', this.todos);
+  }
+  changeTags(todo: Todo, tags: string[]) {
+    todo.tags = tags;
+    this.local.setItem('todo', this.todos);
+  }
+
+  changeDeadline(todo: Todo, newDeadline: Date) {
+    todo.deadline = newDeadline;
+    this.local.setItem('todo', this.todos);
+  }
+
+  changeRecurring(todo: Todo, newRecurring: string) {
+    todo.recurring = newRecurring;
+    this.local.setItem('todo', this.todos);
   }
 }

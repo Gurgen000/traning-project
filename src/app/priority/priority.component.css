@@ -1,0 +1,9 @@
+.priority-selector {
+    margin: 10px 0;
+  }
+  
+  select {
+    padding: 5px;
+    border-radius: 4px;
+  }
+  
