@@ -1,0 +1,8 @@
+<div class="recurring-selector">
+    <label for="recurring" class="form-label">Recurring:</label>
+    <select id="recurring" class="form-select" [(ngModel)]="recurring" (change)="onRecurringChange($event)">
+        <option value="none">Not Repeated</option>
+        <option value="daily">Daily</option>
+        <option value="weekly">Weekly</option>
+    </select>
+</div>

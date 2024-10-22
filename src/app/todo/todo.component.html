@@ -11,7 +11,8 @@
                 <li class="list-group-item">
                     @if (!todo.editing) {
                     <div>
-                        <input type="checkbox" class="form-check-input" [checked]="todo.completed" (change)="toggleComplete(todo)">
+                        <input type="checkbox" class="form-check-input" [checked]="todo.completed"
+                            (change)="toggleComplete(todo)">
                         <span class="form-control" [class.completed]="todo.completed">
                             {{ todo.value }}
                         </span>
